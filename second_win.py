@@ -1,1 +1,52 @@
-# напиши здесь код для второго экрана приложения
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QListWidget, QLineEdit, QGroupBox, QRadioButton
+from instr.py import *
+from final_win.py import *
+class TestWin(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.set_appear()
+        self.initUI()
+        self.connects()
+        self.show()
+    def set_appear(self):
+        self.setWindowTitle(txt_title)
+        self.resize(win_width,win_height)
+        self.move(win_x,win_y)
+    def initUI(self):
+        self.h_line = QvBoxLayout()
+        self.r_line = QHBoxLayout()
+        self.l_line = QHBoxLayout()
+        b1=QPushButton(txt_starttest1)
+        b2=QPushButton(txt_starttest2)
+        b3=QPushButton(txt_starttest3)
+        t1=QLabel(txt_hintage)
+        t2=QLabel(txt_hinttest1)
+        t3=QLabel(txt_hinttest2)
+        t4=QLabel(txt_hinttest3)
+        t4=QLineEdit(text_hintname)
+        t5=QLabel(txt_name)
+        t6=QLabel(txt_age)
+        t7=QLabel(txt_test1)
+        t8=QLabel(txt_test2)
+        t9=QLabel(txt_test3)
+        t10=QLabel(txt_timer)
+        self.h_line.addWidget()
+        self.h_line.addLayout(self.r_line)
+        self.h_line.addLayout(self.l_line)
+        self.r_line.addWidget(t5,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(t4,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(t6,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(t1,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(t7,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(b1,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(t8,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(b2,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(t2,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(t9,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(b3,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(t3,alignment = Qr.AlignLeft)
+        self.r_line.addWidget(t4,alignment = Qr.AlignLeft)
+        self.h_line.addWidget(b4,alignment = Qr.AlignCenter)
+    def connects(self):
+        self.btn_next.clicked.connect(self.next_click)
